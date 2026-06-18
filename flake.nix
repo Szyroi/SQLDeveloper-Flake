@@ -15,7 +15,11 @@
 
     sqldeveloper = pkgs.callPackage ./default.nix {};
   in {
-    packages.${system}.default = sqldeveloper;
-    packages.${system}.sqldeveloper = sqldeveloper;
+    packages = {
+      ${system} = {
+        default = sqldeveloper;
+        sqldeveloper = sqldeveloper;
+      };
+    };
   };
 }
